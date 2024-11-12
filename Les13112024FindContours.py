@@ -27,8 +27,8 @@ while True:
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     hsv_min = (hh, sh, vh)
     hsv_max = (hl, sl, vl)
-    thresh = cv2.inRange( hsv, searchLowHSV, searchHighHSV )
-    contour,hierarchy =cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+    thresh = cv2.inRange( hsv, hsv_max, hsv_min )
+    contour,hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
     for cont in contour:
         s = cv2.contourArea(cont)
         if s > sMin:
