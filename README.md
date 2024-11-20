@@ -36,3 +36,10 @@ contour,hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPL
 <p>Эта программа позволяет находить различные формы на изображении</p>
 
 ![ApproxFindFigure](./readmeImg/img_6.png)
+
+
+### GaussianBlur.py
+
+<p>Эта программа позволяет работать с изображениями, применять фильтр Canny, исспользовать морфологию</p>
+
+![GaussianBlur](./imgGit/img.png)

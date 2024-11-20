@@ -17,8 +17,14 @@ cv2.createTrackbar("Bmin", "setting", 0, 100, noth)
 cv2.createTrackbar("Bmax", "setting", 0, 100, noth)
 cv2.createTrackbar("Cmin", "setting", 0, 255, noth)
 cv2.createTrackbar("Cmax", "setting", 0, 255, noth)
-def morph(img):
-    v = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (10,10))
+cv2.createTrackbar("sizeMorph", "setting", 1, 100, noth)
+
+def morph(img,size):
+    print(size)
+    if size%2!=0:
+        size+=1
+
+    v = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (size, size))
     res = cv2.morphologyEx(img,cv2.MORPH_CROSS, v)
     return res
 
@@ -61,13 +67,18 @@ def settingBlur(img):
 
 
 while True:
+    sizeMorph = cv2.getTrackbarPos("sizeMorph", "setting")
+
     img = cv2.imread("img/cats1.jpg")
     img = cv2.resize(img, (500, 300))
     img = settingBlur(img)
     mask = convertationImgMask(img)
     canny = convertCanny(img)
-    canny = morph(canny)
-    mask = morph(mask)
-    cv2.imshow("setting", mask)
-    cv2.imshow("canny",canny)
+    cannyMorph = morph(canny, sizeMorph)
+    new_mask = morph(mask,sizeMorph)
+    cv2.imshow("mask", mask)
+    cv2.imshow("newMask", new_mask)
+
+    cv2.imshow("setting",canny)
+    cv2.imshow("morph",cannyMorph)
     cv2.waitKey(1)

@@ -3,7 +3,6 @@ cam = cv2.VideoCapture(0)
 def noth(n):
     pass
 cv2.namedWindow("frame")
-
 cv2.createTrackbar("hl","frame",0,255,noth)
 cv2.createTrackbar("sl","frame",0,255,noth)
 cv2.createTrackbar("vl","frame",0,255,noth)
@@ -48,6 +47,5 @@ while True:
     cv2.line(frame,(frame.shape[1]//2,0),(frame.shape[1]//2,frame.shape[0]-1),(100,200,255),3)
     res = cv2.hconcat([canny, mask])
     cv2.imshow("frame",res)
-    # cv2.imshow("mask",mask)
-    # cv2.imshow("canny",canny)
+
     cv2.waitKey(1)

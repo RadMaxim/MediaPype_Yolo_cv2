@@ -19,14 +19,11 @@ cv2.createTrackbar("maxT", "setting", 0, 255, noth)
 while True:
     ret, frame = cap.read()
     frame = cv2.resize(frame,(600,500))
-
-    # minT = cv2.getTrackbarPos("minT", "setting")
-    # maxT = cv2.getTrackbarPos("maxT", "setting")
-    # 
-    #
+    minT = cv2.getTrackbarPos("minT", "setting")
+    maxT = cv2.getTrackbarPos("maxT", "setting")
     blurXY = cv2.getTrackbarPos("blur", "setting")
-    # minC = cv2.getTrackbarPos("cannyMin", "setting")
-    # maxC = cv2.getTrackbarPos("cannyMax", "setting")
+    minC = cv2.getTrackbarPos("cannyMin", "setting")
+    maxC = cv2.getTrackbarPos("cannyMax", "setting")
 
     if blurXY % 2 == 0:
         blurXY += 1
@@ -40,11 +37,8 @@ while True:
     squares = []
     obj = {}
     for cont in contours:
-
         (x, y, w, h) = cv2.boundingRect(cont)
-
         cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
-
     if not ret:
         break
     cv2.imshow("setting1", frame)

@@ -20,11 +20,11 @@ while True:
         blurX+=1
     if blurY%2==0:
         blurY+=1
-    # blur = cv2.GaussianBlur(img,(blurX,blurY),1)
-    blur = cv2.GaussianBlur(img,(59,59),1)
+    blur = cv2.GaussianBlur(img,(blurX,blurY),1)
+    # blur = cv2.GaussianBlur(img,(59,59),1)
     canny1 = cv2.Canny(img,0,255)
-    # canny2 = cv2.Canny(blur,cannyMin,cannyMax)
-    canny2 = cv2.Canny(blur,255,255)
+    canny2 = cv2.Canny(blur,cannyMin,cannyMax)
+    # canny2 = cv2.Canny(blur,255,255)
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (57, 57))
     closed = cv2.morphologyEx(canny2, cv2.MORPH_CLOSE, kernel)
     cv2.imshow("cl",closed)
