@@ -37,15 +37,16 @@ while True:
         approx = cv2.approxPolyDP(cnt, epsilon, True)
         x = approx.ravel()[0]
         y = approx.ravel()[1]
-        cv2.putText(frame,"finding",(x,y),1,1.0,(0,0,0),2)
+
         if x>frame.shape[1]//2:
-            print("right")
+            cv2.putText(frame, "right", (x, y), 1, 1.0, (0, 0, 0), 2)
+
         else:
-            print("left")
+            cv2.putText(frame, "left", (x, y), 1, 1.0, (0, 0, 0), 2)
         cv2.drawContours(frame,[approx],-1,(255,0,255),3)
-    print(frame.shape)
+
     cv2.line(frame,(frame.shape[1]//2,0),(frame.shape[1]//2,frame.shape[0]-1),(100,200,255),3)
     res = cv2.hconcat([canny, mask])
     cv2.imshow("frame",res)
-
+    cv2.imshow("text", frame)
     cv2.waitKey(1)

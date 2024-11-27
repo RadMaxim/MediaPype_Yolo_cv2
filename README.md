@@ -50,3 +50,11 @@ contour,hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPL
 <p>Эта программа позволяет работать с изображениями, применять фильтр Canny, исспользовать морфологию</p>
 
 ![Canny](./imgGit/img_1.png)
+
+
+### HaarCascade
+
+<p>Обнаружение лиц с помощью HaarCascade</p>
+
+![HaarCascade](./imgGit/cascade.png)
+
