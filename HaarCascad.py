@@ -1,6 +1,7 @@
 import cv2
 import time
 cap = cv2.VideoCapture(0)
+videoSave = cv2.VideoCapture("./video/manyPeople.mp4")
 face = cv2.CascadeClassifier("cascad/haarcascade_frontalface_default.xml")
 eye = cv2.CascadeClassifier("cascad/haarcascade_eye.xml")
 from playsound import playsound
@@ -38,4 +39,27 @@ def task2():
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 4)
         cv2.imshow('img', frame)
         cv2.waitKey(1)
-task2()
+# task2()
+def task3():
+    global videoSave
+    while True:
+       ret, frame = videoSave.read()
+       if not ret:  # Check if the video has ended
+           print("Video ended. Restarting...")
+           videoSave.release()  # Release the current video capture object
+           videoSave = cv2.VideoCapture("./video/manyPeople.mp4")  # Restart the video
+           continue  # Go to the next iteration of the loop
+
+       gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+       faces = face.detectMultiScale(gray, 1.3, 3, 0, (30, 30))
+       for (x, y, w, h) in faces:
+           length = 70*360/(h*0.26458)
+           cv2.putText(frame, "distance  - "+str(round(length)),(x-30,y+h+20),1,1,(255,0,0),2)
+           if length<340:
+                cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 4)
+           else:
+               cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 4)
+
+       cv2.imshow('img', frame)
+       cv2.waitKey(1)
+task3()

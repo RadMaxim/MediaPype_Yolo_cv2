@@ -1,6 +1,30 @@
 # Python projects
 
 ## OpenCV 
+
+
+
+### Distance to camera 
+
+<p>Обнаружение расстояния до камеры. Если мы находимся слишком близко к камере, то загарается красный квадрат и появляется надпись с предупреждением</p>
+
+![Cascade](./imgGit/img_2.png)
+![Cascade](./imgGit/img_3.png)
+
+
+### Detect eyes and signal
+
+<p>Если закрыть глаза на более чем 4 секунды тогда звучит сигнализация</p>
+
+![Eyes](./imgGit/img_4.png)
+
+### Detect many faces
+
+<p>Программа определяет на каком расстоянии находятся лица от вебкамер</p>
+
+
+![Eyes](./imgGit/img_5.png)
+
 ### CatsBlur.py
 <p>Это программа предназначена для поиска на изображении объекта, для этого я использовал фильтр Canny и Гаусово размытие. Для того чтобы убрать промежуточные помехи я использовал морфологию</p>
 
@@ -58,17 +82,3 @@ contour,hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPL
 
 ![HaarCascade](./imgGit/cascade.png)
 
-
-### Distance to camera 
-
-<p>Обнаружение расстояния до камеры. Если мы находимся слишком близко к камере, то загарается красный квадрат и появляется надпись с предупреждением</p>
-
-![Cascade](./imgGit/img_2.png)
-![Cascade](./imgGit/img_3.png)
-
-
-### Detect eyes and signal
-
-<p>Если закрыть глаза на более чем 4 секунды тогда звучит сигнализация</p>
-
-![Eyes](./imgGit/img_4.png)
