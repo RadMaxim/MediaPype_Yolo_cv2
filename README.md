@@ -65,3 +65,10 @@ contour,hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPL
 
 ![Cascade](./imgGit/img_2.png)
 ![Cascade](./imgGit/img_3.png)
+
+
+### Detect eyes and signal
+
+<p>Если закрыть глаза на более чем 4 секунды тогда звучит сигнализация</p>
+
+![Eyes](./imgGit/img_4.png)
