@@ -58,3 +58,10 @@ contour,hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPL
 
 ![HaarCascade](./imgGit/cascade.png)
 
+
+### Distance to camera 
+
+<p>Обнаружение расстояния до камеры. Если мы находимся слишком близко к камере, то загарается красный квадрат и появляется надпись с предупреждением</p>
+
+![Cascade](./imgGit/img_2.png)
+![Cascade](./imgGit/img_3.png)
