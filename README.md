@@ -82,3 +82,16 @@ contour,hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPL
 
 ![HaarCascade](./imgGit/cascade.png)
 
+### HaarCascadeWithTelebot
+
+<p>Обнаружение лиц с помощью каскадов Хаара</p>
+
+![Haar1](./imgGit/img_8.png)
+
+<p>Если есть лицо и движение, то программа отправляет сохраненную фотографию в бота</p>
+
+![Haar2](./imgGit/img_7.png)
+
+<p>Если есть каждый кадр отнимается от предыдущего кадра и если движение есть то происходит смена цвета на белый </p>
+
+![Haar3](./imgGit/img_6.png)

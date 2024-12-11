@@ -24,7 +24,7 @@ def task1():
 
 def task2():
     no_eyes_timer = 0
-    no_eyes_threshold = 4  # seconds
+    no_eyes_threshold = 2  # seconds
     while True:
 
         _, frame = cap.read()
@@ -32,6 +32,7 @@ def task2():
         eyes = eye.detectMultiScale(gray, 1.3, 10, 0, (10, 10))
         if len(eyes) == 0:
             no_eyes_timer += 1
+            print(no_eyes_timer)
             if no_eyes_timer >= no_eyes_threshold * 10:  # check every 0.1 second
                 playsound("audio/87f6a412389aba1.mp3")
                 no_eyes_timer = 0  # reset the timer
@@ -39,7 +40,7 @@ def task2():
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 4)
         cv2.imshow('img', frame)
         cv2.waitKey(1)
-# task2()
+task2()
 def task3():
     global videoSave
     while True:
@@ -62,4 +63,4 @@ def task3():
 
        cv2.imshow('img', frame)
        cv2.waitKey(1)
-task3()
+# task3()

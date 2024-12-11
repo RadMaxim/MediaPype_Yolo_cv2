@@ -15,9 +15,13 @@ arr = [0, 0, 0, 0]
 stateFace = False
 stateMove = False
 
+# Эта функция нужна для обнаружения разницы кадров
 
 def diffImg(f1, f2):
+    print("first frame:",f1)
+    print("second frame:",f2)
     d1 = cv2.absdiff(f1, f2)
+    print(d1)
     d3 = np.ravel(d1)
     d4 = np.count_nonzero(d3)
     return d4, d1
@@ -45,6 +49,7 @@ while True:
     cv2.imwrite("img/move.jpg", current_frame)
     if nonzero > 270000:
         bot.send_photo(bot_id, open("img/move.jpg", 'rb'))
+        bot.send_message(bot_id, "На этом кадре обнаружено движение и лицо человека")
     print(nonzero)
 
     if prev_w - arr[2] > 15 and prev_h - arr[3] > 15:
